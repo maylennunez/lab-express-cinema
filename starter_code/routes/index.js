@@ -13,9 +13,9 @@ router.get('/', (req, res, next) => {
 
 
 
-router.get('/newpage', (req, res, next) => {
-  res.render('newpage')
-})
+// router.get('/newpage', (req, res, next) => {
+//   res.render('newpage')
+// })
 
 router.get('/movies', (req, res, next) => {
   Movie.find()
@@ -27,6 +27,10 @@ router.get('/movies', (req, res, next) => {
   })
 });
   
-
+// Movie.create(movieData)
+// .then(movie => console.log('The movie is saved and its value is: ', movie))
+// .catch(error =>
+//   console.log('An error happened while looking for movie:', error)
+// );
 
 module.exports = router;

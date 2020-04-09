@@ -14,7 +14,7 @@ mongoose
 
 
 
-const movies = [
+ [
   {
     title : "A Wrinkle in Time",
     director: "Ava DuVernay",
@@ -81,8 +81,3 @@ const movies = [
   }
 ];
 
-Movie.create(movies).then(res => {
-  console.log(res)
-  mongoose.connect.close()
-})
-.catch(err=> console.log(err));
