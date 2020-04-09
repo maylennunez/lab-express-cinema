@@ -8,17 +8,22 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.get('/about', (req, res, next) => {
-  res.render('about.hbs', { 
-      greeting: "Welcome to Spanish Class", 
-      verbs: ['correr', 'saltar', 'caminar', 'estudiar', 'bailar', 'matar'],
-      words: [{  adjective: 'lindo'}, {  adjective: 'fao'}, {  adjective: 'bonito'}, {  adjective: 'chismosa'}]
-    })
-})
+// router.get('/about', (req, res, next) => {
+//   res.render('about.hbs', { 
+//       greeting: "Welcome to Spanish Class", 
+//       verbs: ['correr', 'saltar', 'caminar', 'estudiar', 'bailar', 'matar'],
+//       words: [{  adjective: 'lindo'}, {  adjective: 'fao'}, {  adjective: 'bonito'}, {  adjective: 'chismosa'}]
+//     })
+// })
 
 
 router.get('/newpage', (req, res, next) => {
   res.render('newpage')
 })
+
+router.get('/Movies', (req, res, next) => {
+  res.render('Movies')
+})
+
 
 module.exports = router;
