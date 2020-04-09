@@ -1,29 +1,32 @@
 const express = require('express');
 const router  = express.Router();
+const movieData = require('../bin/seeds');
+const Movie = require('../models/Movie.js');
+const mongoose = require('mongoose');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index.hbs', { name: 'Melvin', name2: 'David'} );
-  //res.json({ name: 'Melvin', name2: 'David'}) this is how its done with react 
+  res.render('index.hbs', { img:'/images/cinema.jpg'} );
+
 });
 
 
-// router.get('/about', (req, res, next) => {
-//   res.render('about.hbs', { 
-//       greeting: "Welcome to Spanish Class", 
-//       verbs: ['correr', 'saltar', 'caminar', 'estudiar', 'bailar', 'matar'],
-//       words: [{  adjective: 'lindo'}, {  adjective: 'fao'}, {  adjective: 'bonito'}, {  adjective: 'chismosa'}]
-//     })
-// })
 
 
 router.get('/newpage', (req, res, next) => {
   res.render('newpage')
 })
 
-router.get('/Movies', (req, res, next) => {
-  res.render('Movies')
-})
+router.get('/movies', (req, res, next) => {
+  Movie.find()
+  .then(eachMovie => {
+    console.log('Retrieved movie from DB:', eachMovie);
+    res.render('movies', { movies: eachMovie });
+  }).catch(error => {
+    console.log('Error while getting the movies from the DB: ', error);
+  })
+});
+  
 
 
 module.exports = router;

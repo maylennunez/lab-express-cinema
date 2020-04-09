@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-const Movies = require('../models/movie')
+const Movies = require('../models/Movie')
 
 
 mongoose
@@ -14,7 +14,7 @@ mongoose
 
 
 
-const Movies = [
+const movies = [
   {
     title : "A Wrinkle in Time",
     director: "Ava DuVernay",
@@ -81,7 +81,7 @@ const Movies = [
   }
 ];
 
-Movie.create(Movies).then(res => {
+Movie.create(movies).then(res => {
   console.log(res)
   mongoose.connect.close()
 })
